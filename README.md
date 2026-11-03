@@ -21,3 +21,8 @@ guessing — the blanks are deliberate.
 python3 build.py        # csv + rows.json -> index.html
 python3 make_pdf.py     # index.html -> trump_clemency.pdf
 ```
+
+## License
+
+MIT — see `LICENSE`. The underlying clemency records are public information; each row carries a
+`Source_URL` pointing at the primary source.
