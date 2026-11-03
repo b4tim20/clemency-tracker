@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trump Clemency Dataset — pardons, commutations &amp; mass clemency</title>
+<meta name="description" content="A sourced, deduplicated dataset of Donald J. Trump's pardons and commutations, 2017–2021 and 2025–present (513 records). CSV and PDF downloads.">
+<style>
+:root{--bg:#0a0a0a;--fg:#e8e8e8;--g:#00ff9f;--c:#00f0ff;--dim:#8a8a8a;--line:#1e2b26}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:3rem 1.25rem 5rem}
+h1{font-size:2rem;line-height:1.2;margin:0 0 .4rem;letter-spacing:-.02em}
+h1 span{color:var(--g)}
+.sub{color:var(--dim);margin:0 0 2.5rem;font-size:.95rem}
+h2{font-size:1.1rem;margin:2.5rem 0 .8rem;color:var(--c);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+p{margin:0 0 1rem}
+a{color:var(--c)}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.92rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-weight:500;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+td.n,th.n{text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+tr:last-child td{border-bottom:none;color:var(--g);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.5rem 0}
+.card{border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem}
+.card .k{color:var(--dim);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em}
+.card .v{font-size:1.5rem;font-family:ui-monospace,Menlo,monospace;color:var(--g);margin-top:.2rem}
+.dl{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.2rem 0}
+.dl a{display:inline-block;border:1px solid var(--g);color:var(--g);text-decoration:none;padding:.6rem 1.1rem;border-radius:8px;font-family:ui-monospace,Menlo,monospace;font-size:.9rem}
+.dl a:hover{background:var(--g);color:#000}
+.note{border-left:2px solid var(--c);padding:.2rem 0 .2rem 1rem;color:var(--dim);font-size:.9rem;margin:1.2rem 0}
+footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
+ul{margin:0 0 1rem;padding-left:1.2rem}li{margin:.3rem 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="mono" style="color:var(--g);font-size:.8rem;letter-spacing:.15em;margin-bottom:1.5rem">AUDIT / CLEMENCY</p>
+
+<h1>Trump Clemency <span>Dataset</span></h1>
+<p class="sub">Pardons, commutations and mass clemency — 2017–2021 and 2025–present. 513 records, sourced and deduplicated.</p>
+
+<div class="cards">
+  <div class="card"><div class="k">Records</div><div class="v">513</div></div>
+  <div class="card"><div class="k">2017–2021</div><div class="v">244</div></div>
+  <div class="card"><div class="k">2025–present</div><div class="v">268</div></div>
+  <div class="card"><div class="k">Two-source verified</div><div class="v">418</div></div>
+</div>
+
+<h2>Download</h2>
+<div class="dl">
+  <a href="trump_clemency.csv" download>trump_clemency.csv · 324 KB</a>
+  <a href="trump_clemency.pdf" download>trump_clemency.pdf · 43 pp</a>
+</div>
+
+<h2>Counts by term and type</h2>
+<table>
+<thead><tr><th>Term</th><th>Type</th><th class="n">Records</th></tr></thead>
+<tbody>
+<tr><td>2017–2021</td><td>Pardon</td><td class="n">147</td></tr>
+<tr><td>2017–2021</td><td>Commutation</td><td class="n">97</td></tr>
+<tr><td>2025–present</td><td>Pardon</td><td class="n">223</td></tr>
+<tr><td>2025–present</td><td>Commutation</td><td class="n">44</td></tr>
+<tr><td>2025–present</td><td>Pardon + Commutation (Jan 6 blanket)</td><td class="n">1</td></tr>
+<tr><td colspan="2">Total</td><td class="n">513</td></tr>
+</tbody>
+</table>
+
+<h2>Schema</h2>
+<p class="mono" style="font-size:.82rem;color:var(--dim);line-height:1.9">Name · Date · Type · Category · Offense · Original_Sentence · Restitution_Amount · Political_Party · Court · Notes · Term · Source_URL · Verification_Status</p>
+
+<h2>Method</h2>
+<ul>
+  <li><strong>Spine:</strong> U.S. Department of Justice, Office of the Pardon Attorney — official grant lists for both terms.</li>
+  <li><strong>Cross-check:</strong> Wikipedia's two clemency lists, matched by normalized name; agreement promotes a row to <span class="mono">Verified</span>.</li>
+  <li><strong>January 6, 2025:</strong> Proclamation 10887 (Federal Register 2025-01950) — the blanket grant is one aggregate row; the 14 individuals commuted by name are listed individually.</li>
+  <li><strong>Deduplication:</strong> by name + type + date, so a person commuted and later pardoned keeps both actions.</li>
+</ul>
+
+<div class="note">
+<strong>Limitations, stated rather than buried:</strong> 95 records are single-source and flagged <span class="mono">Unverified</span>; they are retained, not dropped. <span class="mono">Political_Party</span> is <span class="mono">Unknown</span> for most rows because DOJ does not publish it and it was not inferred. <span class="mono">Restitution_Amount</span> is populated only where the sentence text states a figure. The roster of roughly 1,500 individually pardoned January 6 defendants has not been published, so it is represented as an aggregate.
+</div>
+
+<h2>Sources</h2>
+<ul class="mono" style="font-size:.82rem;color:var(--dim)">
+  <li>justice.gov/pardon/pardons-granted-president-donald-j-trump-2017-2021</li>
+  <li>justice.gov/pardon/commutations-granted-president-donald-j-trump-2017-2021</li>
+  <li>justice.gov/pardon/clemency-grants-president-donald-j-trump-2025-present</li>
+  <li>federalregister.gov/documents/2025/01/29/2025-01950</li>
+  <li>en.wikipedia.org — first and second Trump presidency clemency lists (cross-check)</li>
+</ul>
+
+<footer>
+Compiled from public official and reputable sources. No names or details were invented; unknown fields are marked <span class="mono">Unknown</span> and uncertain records <span class="mono">Unverified</span>. Verify against the cited sources before relying on any individual record.
+</footer>
+
+</div>
+</body>
+</html>
